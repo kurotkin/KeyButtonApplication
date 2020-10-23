@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:exitFadeDuration="2000"
+    android:enterFadeDuration="2000">
+
+    <item android:drawable="@drawable/gradient_drawable1"/>
+
+    <item android:drawable="@drawable/gradient_drawable2"/>
+
+    <item android:drawable="@drawable/gradient_drawable3"/>
+
+</selector>
