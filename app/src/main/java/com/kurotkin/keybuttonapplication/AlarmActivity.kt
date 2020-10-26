@@ -7,15 +7,19 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.work.OneTimeWorkRequest
+import androidx.work.WorkManager
+import com.kurotkin.keybuttonapplication.mail.MailSender
 import com.ncorti.slidetoact.SlideToActView
 import com.ncorti.slidetoact.SlideToActView.OnSlideCompleteListener
 import kotlinx.android.synthetic.main.activity_alarm.*
 import java.util.*
 
+
 class AlarmActivity : AppCompatActivity() {
 
     private lateinit var timerValue: TextView
-    private val t = 16_000L
+    private val t = 54_000L
 
     private val startTime = Date().time
 
@@ -44,7 +48,10 @@ class AlarmActivity : AppCompatActivity() {
 
     override fun onStart() {
         super.onStart()
-        customHandler.postDelayed(updateTimerThread, 0)
+
+        MailSender.sendEmail()
+
+        //customHandler.postDelayed(updateTimerThread, 0)
     }
 
     private val updateTimerThread: Runnable = object : Runnable {
